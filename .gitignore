@@ -1,0 +1,16 @@
+# ignore
+.DS_Store
+*.pyc
+.pydev*
+.project
+.settings
+.idea
+*.db
+env
+
+.idea/
+website/local_settings.py
+website/media
+website/logs
+website/env
+website/static
