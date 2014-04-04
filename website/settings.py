@@ -163,6 +163,8 @@ INSTALLED_APPS = [
     'cms.plugins.text',
     'cms.plugins.picture',
 
+    # mine
+    'clothing',
 ]
 
 # LANGUAGES
@@ -173,7 +175,7 @@ LANGUAGES = (
 
 # CMS RELATED STUFF
 CMS_TEMPLATES = (
-   # ('cms/layouts/home.html', gettext('Home Template')),
+   ('cms/layouts/home.html', gettext('Home Template')),
 )
 
 CMS_FRONTEND_LANGUAGES = ('de', )

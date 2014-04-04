@@ -1,0 +1,24 @@
+{% load i18n sekizai_tags %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% trans 'My cloths' %}</title>
+
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap_3.1/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/styles.css">
+
+		{% render_block "css" %}
+
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery_2.1.0/jquery.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap_3.1/bootstrap.min.js"></script>
+
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+
+		<script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
+    </head>
+    <body>
+    </body>
+</html>
