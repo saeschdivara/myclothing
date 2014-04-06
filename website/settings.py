@@ -72,7 +72,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '&P_%dp3qv&%%&88881jHBBlq_cnf6i*laow21t$j++81txKN9uj88?#nf@'
+SECRET_KEY = '&P_%dp3qv&%%&88881jHBBlq_cnf6i*laow21))==)333242,KSKOKLMSj88?#nf@'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -162,6 +162,8 @@ INSTALLED_APPS = [
 
     'cms.plugins.text',
     'cms.plugins.picture',
+
+    'djangular',
 
     # mine
     'clothing',
