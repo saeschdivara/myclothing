@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html>
+<html ng-app="clothing-app">
 <head>
     <title>{% trans 'My cloths' %}</title>
 
@@ -16,30 +16,39 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="{{ STATIC_URL }}js/angularjs_1.3/angular.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/angularjs_1.3/angular-loader.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/angularjs_1.3/angular-cookies.min.js"></script>
     <script src="{{ STATIC_URL }}djangular/js/django-angular.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
 </head>
 <body>
 
-    <script>
-        var my_app = angular.module('myApp', [/* other dependencies */, 'ngCookies']).run(function($http, $cookies) {
-            $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-            $interpolateProvider.startSymbol('{$');
-            $interpolateProvider.endSymbol('$}');
+<script>
 
-            $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
-            // Add the following two lines
-            $http.defaults.xsrfCookieName = 'csrftoken';
-            $http.defaults.xsrfHeaderName = 'X-CSRFToken';
-        });
+    var my_app = angular.module('clothing-app', ['ngCookies'])
+            .config(function($interpolateProvider) {
+                $interpolateProvider.startSymbol('{$');
+                $interpolateProvider.endSymbol('$}');
+            })
+            .run(function ($http, $cookies) {
 
-        var myServices = angular.module('myServices', ['ngResource']);
-
-        myServices.factory('MyModel', ['$resource', function($resource) {
-            return $resource('/crud/clothing-time/', {'pk': '@pk'}, {
+                $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+                $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+                // Add the following two lines
+                $http.defaults.xsrfCookieName = 'csrftoken';
+                $http.defaults.xsrfHeaderName = 'X-CSRFToken';
             });
-        }]);
-    </script>
+
+    var myServices = angular.module('myServices', ['ngResource']);
+
+    myServices.factory('ClothingTime', ['$resource', function ($resource) {
+        return $resource('/crud/clothing-time/', {'pk': '@pk'}, {
+        });
+    }]);
+</script>
+
+{% block content %}
+{% endblock %}
 
 </body>
 </html>

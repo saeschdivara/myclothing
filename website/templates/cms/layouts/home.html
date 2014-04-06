@@ -1,1 +1,21 @@
 {% extends 'cms/layouts/base/base.html' %}
+
+{% block content %}
+    <script>
+
+        my_app.controller('ClothingTimeController', ['$scope', function ($scope, ClothingTime) {
+            // Query returns an array of objects, MyModel.objects.all() by default
+            //$scope.models = ClothingTime.query();
+            $scope.headings = ['One', 'Two', 'Three'];
+
+        }]);
+
+
+    </script>
+
+    <ul ng-controller="ClothingTimeController">
+        <li ng-repeat="head in headings">
+            {$ head $}
+        </li>
+    </ul>
+{% endblock %}
