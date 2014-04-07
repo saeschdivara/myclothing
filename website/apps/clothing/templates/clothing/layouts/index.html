@@ -1,2 +1,15 @@
 {% extends 'cms/layouts/base/base.html' %}
 {% load i18n %}
+
+
+{% block javascript %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <ul ng-controller="ClothingTimeController">
+        <li ng-repeat="head in headings">
+            {$ head $}
+        </li>
+    </ul>
+{% endblock %}

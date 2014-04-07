@@ -17,15 +17,12 @@ router.register(r'groups', GroupViewSet)
 urlpatterns = patterns('',
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/', include(router.urls)),
+    url(r'^clothing/', include('clothing.urls', namespace='clothing')),
 )
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
-
-urlpatterns += patterns('',
-    url(r'foo/', include('foo.urls', namespace='foo')),
-)
 
 urlpatterns += i18n_patterns('',
     url(r'^admin/', include(admin.site.urls)),
