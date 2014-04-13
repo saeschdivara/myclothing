@@ -1,0 +1,8 @@
+{
+  "name": "myclothes",
+  "description": "A work done little",
+  "author": "Sascha Häusler <saeschdivara@gmail.com>",
+  "dependencies": {
+  },
+  "engine": "node 0.4.1"
+}
