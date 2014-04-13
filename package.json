@@ -2,7 +2,23 @@
   "name": "myclothes",
   "description": "A work done little",
   "author": "Sascha Häusler <saeschdivara@gmail.com>",
-  "dependencies": {
+  "dependencies": {},
+  "engine": "node 0.4.1",
+  "version": "0.0.1",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engine": "node 0.4.1"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:saeschdivara/myclothing.git"
+  },
+  "keywords": [
+    "clothes"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saeschdivara/myclothing/issues"
+  },
+  "homepage": "https://github.com/saeschdivara/myclothing"
 }
