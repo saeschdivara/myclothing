@@ -26,7 +26,7 @@ clothingApp.factory('clothingTimeManager', ['$http', '$q', ($http, $q) ->
       test: 2
       loadAll: () ->
         deferred = $q.defer()
-        $http.get('http://localhost:9222/api/users').success(
+        $http.get('/api/users').success(
             (list) ->
               console.log(list)
               deferred.resolve(list)
