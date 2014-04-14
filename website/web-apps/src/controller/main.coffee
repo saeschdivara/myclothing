@@ -11,14 +11,7 @@ clothingApp = angular.module('clothing-app', ['ngCookies'])
     $http.defaults.xsrfHeaderName = 'X-CSRFToken'
   )
 
-myServices = angular.module('myServices', ['ngResource']);
-
-myServices.factory('ClothingTime', ['$http', ($http) ->
-    class ClothingTime
-      test = () ->
-
-    return ClothingTime
-])
+window.myServices = angular.module('myServices', ['ngResource']);
 
 clothingApp.factory('clothingTimeManager', ['$http', '$q', ($http, $q) ->
 

@@ -17,8 +17,11 @@ module.exports = function (grunt) {
                     join: true
                 },
                 files: {
-                    'website/web-apps/dist/controller/controllers.min.js': [
+                    'website/web-apps/dist/controller/controllers.js': [
                         'website/web-apps/src/controller/*.coffee'
+                    ],
+                    'website/web-apps/dist/model/models.js': [
+                        'website/web-apps/src/model/*.coffee'
                     ]
                 }
             }
@@ -35,7 +38,8 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     'website/site-static/js/app/<%= pkg.name %>.min.js': [
-                        'website/web-apps/dist/controller/controllers.min.js'
+                        'website/web-apps/dist/controller/controllers.js',
+                        'website/web-apps/dist/model/models.js'
                     ]
                 }
             }
@@ -70,6 +74,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', ['jshint', 'qunit']);
 
-    grunt.registerTask('default', ['coffee', 'jshint', 'qunit', 'uglify']);
+    grunt.registerTask('default', ['coffee', 'qunit', 'uglify']);
 
 };
