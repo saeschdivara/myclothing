@@ -26,6 +26,12 @@ module.exports = function (grunt) {
                 }
             }
         },
+        ngmin: {
+          controllers: {
+            src: ['website/web-apps/dist/controller/controllers.js'],
+            dest: 'website/web-apps/dist/controller/controllers.js'
+          }
+        },
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -71,9 +77,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-coffee');
+    grunt.loadNpmTasks('grunt-ngmin');
 
     grunt.registerTask('test', ['jshint', 'qunit']);
 
-    grunt.registerTask('default', ['coffee', 'qunit', 'uglify']);
+    grunt.registerTask('default', ['coffee', 'qunit', 'ngmin', 'uglify']);
 
 };
