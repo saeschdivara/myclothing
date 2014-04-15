@@ -1,7 +1,5 @@
 (function() {
-  var clothingApp;
-
-  clothingApp = angular.module('clothing-app', ['ngCookies']).config(function($interpolateProvider) {
+  window.clothingApp = angular.module('clothing-app', ['ngCookies']).config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{$');
     return $interpolateProvider.endSymbol('$}');
   }).run(function($http, $cookies) {

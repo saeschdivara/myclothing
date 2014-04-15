@@ -1,4 +1,4 @@
-clothingApp = angular.module('clothing-app', ['ngCookies'])
+window.clothingApp = angular.module('clothing-app', ['ngCookies'])
 .config(($interpolateProvider)  ->
     $interpolateProvider.startSymbol('{$')
     $interpolateProvider.endSymbol('$}')
