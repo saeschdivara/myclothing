@@ -1,8 +1,16 @@
-#myServices.factory('ClothingTime', ['$http', ($http) ->
-#    class ClothingTime
-#      isVisible: false
-#      setVisible: (isVisible) ->
-#        @isVisible = isVisible
-#
-#    return ClothingTime
-#])
+clothingApp.factory('ClothingTimeFactory', [() ->
+    class ClothingTime
+
+      constructor: (@isVisible = false) ->
+
+      setData: (obj) ->
+        @name = obj.name
+        @slug = obj.slug
+
+      setVisible: (isVisible) ->
+        @isVisible = isVisible
+
+    ClothingTimeFactory =
+      $new: () ->
+        return new ClothingTime()
+])

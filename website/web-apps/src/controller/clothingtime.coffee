@@ -1,4 +1,4 @@
-clothingApp.factory('clothingTimeManager', ['$http', '$q', ($http, $q) ->
+clothingApp.factory('clothingTimeManager', ['$http', '$q', 'ClothingTimeFactory', ($http, $q, ClothingTimeFactory) ->
 
     clothingTimeManager =
       test: 2
@@ -6,8 +6,13 @@ clothingApp.factory('clothingTimeManager', ['$http', '$q', ($http, $q) ->
         deferred = $q.defer()
         $http.get('/api/clothing-time/').success(
             (list) ->
-              console.log(list)
-              deferred.resolve(list)
+              times = []
+              for clothingTime in list
+                time = ClothingTimeFactory.$new()
+                time.setData(clothingTime)
+                times.push( time )
+
+              deferred.resolve(times)
           )
         .error(
             () ->

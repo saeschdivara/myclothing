@@ -32,7 +32,7 @@ module.exports = function (grunt) {
                         '<%= grunt.template.today("yyyy-mm-dd")  %> copyright by <%= pkg.author %> */ \n',
 
                 compress: {
-                    drop_console: true
+                    drop_console: false
                 }
             },
             dist: {

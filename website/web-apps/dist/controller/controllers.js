@@ -19,7 +19,8 @@
   clothingApp.factory('clothingTimeManager', [
     '$http',
     '$q',
-    function ($http, $q) {
+    'ClothingTimeFactory',
+    function ($http, $q, ClothingTimeFactory) {
       var clothingTimeManager;
       clothingTimeManager = {
         test: 2,
@@ -27,8 +28,16 @@
           var deferred;
           deferred = $q.defer();
           $http.get('/api/clothing-time/').success(function (list) {
-            console.log(list);
-            return deferred.resolve(list);
+            var clothingTime, time, times, _i, _len;
+            times = [];
+            for (_i = 0, _len = list.length; _i < _len; _i++) {
+              clothingTime = list[_i];
+              time = ClothingTimeFactory.$new();
+              time.setData(clothingTime);
+              times.push(time);
+            }
+            console.log(times);
+            return deferred.resolve(times);
           }).error(function () {
             return deferred.reject();
           });
