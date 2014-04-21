@@ -36,7 +36,6 @@
               time.setData(clothingTime);
               times.push(time);
             }
-            console.log(times);
             return deferred.resolve(times);
           }).error(function () {
             return deferred.reject();

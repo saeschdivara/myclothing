@@ -7,9 +7,11 @@
 {% endblock %}
 
 {% block content %}
-    <ul ng-controller="ClothingTimeController">
-        <li ng-repeat="time in clothingtimes">
+    <div class="clothing-time-container" ng-controller="ClothingTimeController">
+        <div class="clothing-time" ng-repeat="time in clothingtimes">
             <a href="{$ time.url $}">{$ time.name $}</a>
-        </li>
-    </ul>
+            <br />
+            <img src="{{ MEDIA_URL }}{$ time.image $}" height="100px" />
+        </div>
+    </div>
 {% endblock %}

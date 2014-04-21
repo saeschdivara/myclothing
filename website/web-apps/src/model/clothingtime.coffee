@@ -6,6 +6,7 @@ clothingApp.factory('ClothingTimeFactory', [() ->
       setData: (obj) ->
         @name = obj.name
         @slug = obj.slug
+        @image = obj.image
 
       setVisible: (isVisible) ->
         @isVisible = isVisible

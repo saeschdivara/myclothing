@@ -8,6 +8,8 @@ from clothing.views import UserViewSet, GroupViewSet, ClothingTimeViewSet
 
 
 # Routers provide an easy way of automatically determining the URL conf.
+from website import settings
+
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
@@ -49,9 +51,9 @@ urlpatterns += i18n_patterns('',
 #     url(r'^admin/', include(admin.site.urls)),
 # )
 #
-# if settings.DEBUG:
-#     urlpatterns += patterns('',
-#         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-#             'document_root': settings.MEDIA_ROOT,
-#         }),
-# )
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+)

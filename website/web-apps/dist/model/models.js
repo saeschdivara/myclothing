@@ -9,7 +9,8 @@
 
         ClothingTime.prototype.setData = function(obj) {
           this.name = obj.name;
-          return this.slug = obj.slug;
+          this.slug = obj.slug;
+          return this.image = obj.image;
         };
 
         ClothingTime.prototype.setVisible = function(isVisible) {
