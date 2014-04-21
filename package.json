@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/saeschdivara/myclothing/issues"
   },
-  "homepage": "https://github.com/saeschdivara/myclothing"
+  "homepage": "https://github.com/saeschdivara/myclothing",
+  "devDependencies": {
+    "grunt-codo": "^0.1.0"
+  }
 }

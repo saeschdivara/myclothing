@@ -2,15 +2,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                src: ['website/site-static/js/app/**/*.js'],
-                dest: 'dist/<%= pkg.name %>.js'
-            }
-        },
         coffee: {
             compileJoined: {
                 options: {
@@ -75,12 +66,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-ngmin');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     grunt.registerTask('test', ['jshint', 'qunit']);
+    grunt.registerTask('style', ['compass']);
 
-    grunt.registerTask('default', ['coffee', 'qunit', 'ngmin', 'uglify']);
+    grunt.registerTask('default', ['coffee', 'ngmin', 'uglify']);
 
 };
