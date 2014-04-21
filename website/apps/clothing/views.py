@@ -1,9 +1,12 @@
+from django.contrib.auth.models import User, Group
 from django.shortcuts import render
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.utils.translation import ugettext as _
 
-from clothing.models import ClothingTime
+from rest_framework import viewsets, routers
 
+from clothing.models import ClothingTime
+from clothing.serializers import ClothingTimeSerializer, UserSerializer, GroupSerializer
 
 
 """ Normal views """
@@ -13,25 +16,16 @@ def show(request):
     })
 
 """ REST API Views """
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets, routers
-
-# ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
-    model = User
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 
 class GroupViewSet(viewsets.ModelViewSet):
-    model = Group
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
 
 
-# Routers provide an easy way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'groups', GroupViewSet)
-
-
-""" AngularJS views """
-from djangular.views.crud import NgCRUDView
-
-class ClothingTimeCRUDView(NgCRUDView):
-    model = ClothingTime
+class ClothingTimeViewSet(viewsets.ModelViewSet):
+    queryset = ClothingTime.objects.all()
+    serializer_class = ClothingTimeSerializer
