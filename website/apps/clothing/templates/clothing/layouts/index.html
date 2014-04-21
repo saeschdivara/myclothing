@@ -8,8 +8,8 @@
 
 {% block content %}
     <ul ng-controller="ClothingTimeController">
-        <li ng-repeat="user in users">
-            <a href="{$ user.url $}">{$ user.email $}</a>
+        <li ng-repeat="time in clothingtimes">
+            <a href="{$ time.url $}">{$ time.name $}</a>
         </li>
     </ul>
 {% endblock %}

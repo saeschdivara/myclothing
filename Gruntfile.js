@@ -9,6 +9,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'website/web-apps/dist/controller/controllers.js': [
+                        'website/web-apps/src/main.coffee',
                         'website/web-apps/src/controller/*.coffee'
                     ],
                     'website/web-apps/dist/model/models.js': [
@@ -19,7 +20,9 @@ module.exports = function (grunt) {
         },
         ngmin: {
           controllers: {
-            src: ['website/web-apps/dist/controller/controllers.js'],
+            src: [
+                'website/web-apps/dist/controller/controllers.js'
+            ],
             dest: 'website/web-apps/dist/controller/controllers.js'
           }
         },
@@ -55,23 +58,28 @@ module.exports = function (grunt) {
                     document: true
                 }
             }
-        },
-        watch: {
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint', 'qunit']
         }
+//        compass: {                  // Task
+//            dist: {                   // Target
+//                options: {              // Target options
+//                    config: style_path + 'config.rb',
+//                    sassDir: style_path + 'sass',
+//                    cssDir: style_path + 'css',
+//                    environment: 'production'
+//                }
+//            }
+//        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-ngmin');
     grunt.loadNpmTasks('grunt-contrib-compass');
 
     grunt.registerTask('test', ['jshint', 'qunit']);
-    grunt.registerTask('style', ['compass']);
+//    grunt.registerTask('style', ['compass']);
 
     grunt.registerTask('default', ['coffee', 'ngmin', 'uglify']);
 

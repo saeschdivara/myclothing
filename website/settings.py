@@ -168,7 +168,6 @@ INSTALLED_APPS = [
 
     # mine
     'clothing',
-    'foo',
 ]
 
 # LANGUAGES

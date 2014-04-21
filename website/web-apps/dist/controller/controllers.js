@@ -21,12 +21,12 @@
     '$q',
     function ($http, $q) {
       var clothingTimeManager;
-      return clothingTimeManager = {
+      clothingTimeManager = {
         test: 2,
         loadAll: function () {
           var deferred;
           deferred = $q.defer();
-          $http.get('/api/users').success(function (list) {
+          $http.get('/api/clothing-time/').success(function (list) {
             console.log(list);
             return deferred.resolve(list);
           }).error(function () {
@@ -35,6 +35,7 @@
           return deferred.promise;
         }
       };
+      return clothingTimeManager;
     }
   ]);
   clothingApp.controller('ClothingTimeController', [
@@ -42,8 +43,8 @@
     'clothingTimeManager',
     function ($scope, clothingTimeManager) {
       return clothingTimeManager.loadAll().then(function (_this) {
-        return function (userList) {
-          return $scope.users = userList;
+        return function (clothingtimeList) {
+          return $scope.clothingtimes = clothingtimeList;
         };
       }(this));
     }
