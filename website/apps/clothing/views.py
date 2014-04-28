@@ -5,8 +5,8 @@ from django.utils.translation import ugettext as _
 
 from rest_framework import viewsets, routers
 
-from clothing.models import ClothingTime
-from clothing.serializers import ClothingTimeSerializer, UserSerializer, GroupSerializer
+from clothing.models import ClothingTime, Clothing
+from clothing.serializers import ClothingTimeSerializer, UserSerializer, GroupSerializer, ClothingSerializer
 
 
 """ Normal views """
@@ -29,3 +29,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 class ClothingTimeViewSet(viewsets.ModelViewSet):
     queryset = ClothingTime.objects.all()
     serializer_class = ClothingTimeSerializer
+
+
+class ClothingViewSet(viewsets.ModelViewSet):
+    queryset = Clothing.objects.all()
+    serializer_class = ClothingSerializer
