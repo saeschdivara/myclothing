@@ -9,9 +9,15 @@
 {% block content %}
     <div class="clothing-time-container" ng-controller="ClothingTimeController">
         <div class="clothing-time" ng-repeat="time in clothingtimes">
-            <a href="{$ time.url $}">{$ time.name $}</a>
+            {$ time.name $}
             <br />
             <img src="{{ MEDIA_URL }}{$ time.image $}" height="100px" />
+
+            <div class="clothes" ng-repeat="clothing in time.clothes">
+                {$ clothing.name $}
+                <br />
+                <img src="{{ MEDIA_URL }}{$ clothing.image $}" height="100px" />
+            </div>
         </div>
     </div>
 {% endblock %}

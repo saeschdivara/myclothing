@@ -36,6 +36,8 @@ class Clothing(BaseModel):
     slug = AutoSlugField(populate_from='name')
     image = ImageField(_('Image'), upload_to="clothing_app/clothes/", null=True, blank=True)
 
+    clothing_time = models.ManyToManyField(ClothingTime, related_name='clothes', null=True, blank=True)
+
     def __unicode__(self):
         return u"%s" % self.name
 

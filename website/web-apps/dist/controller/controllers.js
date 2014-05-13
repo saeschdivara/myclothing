@@ -1,5 +1,8 @@
 (function () {
-  window.clothingApp = angular.module('clothing-app', ['ngCookies']).config([
+  window.clothingApp = angular.module('clothing-app', [
+    'ngCookies',
+    'ngResource'
+  ]).config([
     '$interpolateProvider',
     function ($interpolateProvider) {
       $interpolateProvider.startSymbol('{$');
@@ -15,7 +18,6 @@
       return $http.defaults.xsrfHeaderName = 'X-CSRFToken';
     }
   ]);
-  window.myServices = angular.module('myServices', ['ngResource']);
   clothingApp.factory('clothingTimeManager', [
     '$http',
     '$q',

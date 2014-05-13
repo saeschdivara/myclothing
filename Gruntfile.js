@@ -31,6 +31,8 @@ module.exports = function (grunt) {
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                         '<%= grunt.template.today("yyyy-mm-dd")  %> copyright by <%= pkg.author %> */ \n',
 
+                beautify: true,
+                mangle: false,
                 compress: {
                     drop_console: false
                 }

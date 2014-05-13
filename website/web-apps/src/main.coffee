@@ -1,4 +1,4 @@
-window.clothingApp = angular.module('clothing-app', ['ngCookies'])
+window.clothingApp = angular.module('clothing-app', ['ngCookies', 'ngResource'])
 .config(($interpolateProvider)  ->
     $interpolateProvider.startSymbol('{$')
     $interpolateProvider.endSymbol('$}')
@@ -10,5 +10,3 @@ window.clothingApp = angular.module('clothing-app', ['ngCookies'])
     $http.defaults.xsrfCookieName = 'csrftoken'
     $http.defaults.xsrfHeaderName = 'X-CSRFToken'
   )
-
-window.myServices = angular.module('myServices', ['ngResource']);

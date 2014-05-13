@@ -7,7 +7,7 @@ from clothing.models import ClothingTime, Clothing
 class ClothingTimeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ClothingTime
-        fields = ('name', 'slug', 'image', )
+        fields = ('name', 'clothes', 'slug', 'image', )
 
 
 class ClothingSerializer(serializers.HyperlinkedModelSerializer):
