@@ -9743,14 +9743,17 @@ button.close {
 }
 /* line 9, ../sass/_custom_styles.scss */
 .clothing-time-container {
-  background-color: #006d33;
+  background-color: rgba(200, 200, 200, 0.7);
+  color: #666699;
   padding: 25px;
 }
-/* line 14, ../sass/_custom_styles.scss */
+/* line 15, ../sass/_custom_styles.scss */
 .clothing-time-container .clothing-time {
-  background-color: #002b03;
+  background-color: rgba(224, 240, 175, 0.25);
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
-/* line 18, ../sass/_custom_styles.scss */
+/* line 20, ../sass/_custom_styles.scss */
 .clothing-time-container .clothing-time .clothing-time-info {
   padding-bottom: 20px;
 }
