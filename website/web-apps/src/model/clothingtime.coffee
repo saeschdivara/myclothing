@@ -10,11 +10,12 @@ clothingApp.factory('ClothingTimeFactory', ['ClothingResource', (ClothingResourc
         @image = obj.image
         @clothes = []
 
-        for clothe_url in obj.clothes
-            clothe_obj = ClothingResource.get(clothe_url)
-            clothe_obj.$promise.then(
+        for clothing_id in obj.clothes
+            clothing_obj = ClothingResource.get(
+                id: clothing_id
+            )
+            clothing_obj.$promise.then(
                 (data) =>
-                    console.log(data)
                     @clothes.push( data )
             )
 

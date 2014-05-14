@@ -2,6 +2,9 @@ window.clothingApp = angular.module('clothing-app', ['ngCookies', 'ngResource'])
 .config(($interpolateProvider)  ->
     $interpolateProvider.startSymbol('{$')
     $interpolateProvider.endSymbol('$}')
+
+    # Don't strip trailing slashes
+    #$resourceProvider.defaults.stripTrailingSlashes = false
   )
 .run(($http, $cookies) ->
     $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'

@@ -1,8 +1,10 @@
 (function() {
   clothingApp.factory('ClothingResource', [
     '$resource', function($resource) {
-      return $resource('http://0.0.0.0:9222/api/clothing/:id', {
+      return $resource('/api/clothing/:id/', {
         id: '@id'
+      }, {
+        stripTrailingSlashes: false
       });
     }
   ]);
@@ -16,7 +18,7 @@
         }
 
         ClothingTime.prototype.setData = function(obj) {
-          var clothe_obj, clothe_url, _i, _len, _ref, _results;
+          var clothing_id, clothing_obj, _i, _len, _ref, _results;
           this.name = obj.name;
           this.slug = obj.slug;
           this.image = obj.image;
@@ -24,11 +26,12 @@
           _ref = obj.clothes;
           _results = [];
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            clothe_url = _ref[_i];
-            clothe_obj = ClothingResource.get(clothe_url);
-            _results.push(clothe_obj.$promise.then((function(_this) {
+            clothing_id = _ref[_i];
+            clothing_obj = ClothingResource.get({
+              id: clothing_id
+            });
+            _results.push(clothing_obj.$promise.then((function(_this) {
               return function(data) {
-                console.log(data);
                 return _this.clothes.push(data);
               };
             })(this)));
