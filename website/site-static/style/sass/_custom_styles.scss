@@ -1,0 +1,84 @@
+//////////////////////////////////////////////////////////
+// EDIT CONTAINER
+//////////////////////////////////////////////////////////
+.edit-container {
+
+    position: relative;
+
+    // Edit button styling
+    > .edit-button {
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        text-align: center;
+
+        background-color: lightblue;
+
+        // Icon to middle vertical
+        > .fa {
+            line-height: 20px;
+            vertical-align: middle;
+        }
+    }
+
+    // on hover
+    &:hover {
+        background-color: grey;
+    }
+}
+
+//////////////////////////////////////////////////////////
+// LAYOUT
+//////////////////////////////////////////////////////////
+
+.layout-button {
+    padding: 5px;
+    display: inline-block;
+}
+
+.layout-edit-container {
+    position: relative;
+
+    // HOVER
+    &:hover {
+
+        > layout > * {
+            background-color: #d3d3d3;
+        }
+    }
+
+    // TOOLBAR
+    .layout-toolbar {
+        position: absolute;
+        left: -20px;
+        top: 40px;
+
+        background-color: grey;
+
+        .move-up-layout-button extends .layout-button {
+        }
+
+        .move-down-layout-button extends .layout-button {
+        }
+
+        .remove-layout-button extends .layout-button {
+        }
+    }
+
+}
+
+//////////////////////////////////////////////////////////
+// EDIT DIALOG
+//////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////
+// Menus
+//////////////////////////////////////////////////////////
+.editor_sub_menu {
+    margin-left: 40px;
+
+    > .layout-list-dropdown {
+    }
+}

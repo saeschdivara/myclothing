@@ -1,5 +1,7 @@
 module.exports = function (grunt) {
 
+    var style_path = 'website/site-static/style/'
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         coffee: {
@@ -17,14 +19,6 @@ module.exports = function (grunt) {
                     ]
                 }
             }
-        },
-        ngmin: {
-          controllers: {
-            src: [
-                'website/web-apps/dist/controller/controllers.js'
-            ],
-            dest: 'website/web-apps/dist/controller/controllers.js'
-          }
         },
         uglify: {
             options: {
@@ -60,29 +54,31 @@ module.exports = function (grunt) {
                     document: true
                 }
             }
+        },
+        compass: {                  // Task
+            dist: {                   // Target
+
+                outputStyle: 'nested',
+                debugsass: true,
+                options: {              // Target options
+                    config: style_path + 'config.rb',
+                    sassDir: style_path + 'sass',
+                    cssDir: style_path + 'css',
+                    environment: 'development'
+                }
+            }
         }
-//        compass: {                  // Task
-//            dist: {                   // Target
-//                options: {              // Target options
-//                    config: style_path + 'config.rb',
-//                    sassDir: style_path + 'sass',
-//                    cssDir: style_path + 'css',
-//                    environment: 'production'
-//                }
-//            }
-//        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-coffee');
-    grunt.loadNpmTasks('grunt-ngmin');
     grunt.loadNpmTasks('grunt-contrib-compass');
 
     grunt.registerTask('test', ['jshint', 'qunit']);
-//    grunt.registerTask('style', ['compass']);
+    grunt.registerTask('style', ['compass']);
 
-    grunt.registerTask('default', ['coffee', 'ngmin', 'uglify']);
+    grunt.registerTask('default', ['coffee', 'uglify']);
 
 };
