@@ -31,6 +31,22 @@ class ClothingTime(BaseModel):
         ordering = ('-created', )
 
 
+class BodyPart(BaseModel):
+    name = models.CharField(_('Name'), max_length=256, blank=True)
+
+    clothing = models.ManyToManyField("Clothing", related_name='body_parts', null=True, blank=True)
+
+    def __unicode__(self):
+        return u"%s" % self.name
+
+    """ Meta """
+    class Meta:
+        app_label = 'clothing'
+        verbose_name = _('Body Part')
+        verbose_name_plural = _('Body Parts')
+        ordering = ('-created', )
+
+
 class Clothing(BaseModel):
     name = models.CharField(_('Name'), max_length=256, blank=True)
     slug = AutoSlugField(populate_from='name')
