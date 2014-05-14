@@ -8,16 +8,20 @@
 
 {% block content %}
     <div class="clothing-time-container" ng-controller="ClothingTimeController">
-        <div class="clothing-time" ng-repeat="time in clothingtimes">
-            {$ time.name $}
-            <br />
-            <img src="{{ MEDIA_URL }}{$ time.image $}" height="100px" />
+        <div class="clothing-time row" ng-repeat="time in clothingtimes">
 
-            <div class="clothes" ng-repeat="clothing in time.clothes">
+            <div class="clothing-time-info col-lg-12">
+                {$ time.name $}
+                <br />
+                <img src="{{ MEDIA_URL }}{$ time.image $}" height="100px" />
+            </div>
+
+            <div class="clothes col-lg-3" ng-repeat="clothing in time.clothes">
                 {$ clothing.name $}
                 <br />
                 <img src="{{ MEDIA_URL }}{$ clothing.image $}" height="100px" />
             </div>
         </div>
+        <div class="clearfix"></div>
     </div>
 {% endblock %}

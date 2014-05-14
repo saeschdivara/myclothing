@@ -7,5 +7,19 @@
 // Clothing container
 ///////////////////////////////////////////////
 .clothing-time-container {
-    background-color: cornflowerblue;
+    background-color: #006d33;
+
+    padding: 25px;
+
+    .clothing-time {
+
+        background-color: #002b03;
+
+        .clothing-time-info {
+            padding-bottom: 20px;
+        }
+
+        .clothes {
+        }
+    }
 }

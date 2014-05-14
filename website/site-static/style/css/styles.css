@@ -9743,5 +9743,14 @@ button.close {
 }
 /* line 9, ../sass/_custom_styles.scss */
 .clothing-time-container {
-  background-color: cornflowerblue;
+  background-color: #006d33;
+  padding: 25px;
+}
+/* line 14, ../sass/_custom_styles.scss */
+.clothing-time-container .clothing-time {
+  background-color: #002b03;
+}
+/* line 18, ../sass/_custom_styles.scss */
+.clothing-time-container .clothing-time .clothing-time-info {
+  padding-bottom: 20px;
 }
