@@ -13,7 +13,7 @@ class ClothingTimeSerializer(serializers.ModelSerializer):
 class ClothingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clothing
-        fields = ('id', 'name', 'slug', 'image', )
+        fields = ('id', 'name', 'body_parts', 'slug', 'image', )
 
 
 class BodyPartSerializer(serializers.ModelSerializer):
