@@ -22,14 +22,33 @@
           this.lower_body_part = '';
           this.left_arm = '';
           this.right_arm = '';
-          this.left_foot = '';
-          this.right_foot = '';
-          this.all_parts = BodyPartResource.get();
-          console.log(this.all_parts);
+          this.left_leg = '';
+          this.right_leg = '';
+          BodyPartResource.query().$promise.then((function(_this) {
+            return function(result) {
+              return _this.all_parts = result;
+            };
+          })(this));
         }
 
         BodyController.prototype.$onClothingChosen = function(event, message) {
-          return console.log(event);
+          var body_part_id, body_part_name, body_part_object, clothing, part, _i, _len, _ref;
+          clothing = message.clothing;
+          body_part_id = clothing.body_parts[0];
+          body_part_object = null;
+          _ref = this.all_parts;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            part = _ref[_i];
+            if (part.id === body_part_id) {
+              body_part_object = part;
+              break;
+            }
+          }
+          if (part) {
+            body_part_name = part.name.toLowerCase().replace(/[ ]/, '_');
+            this[body_part_name] = clothing.image;
+            return console.log(this);
+          }
         };
 
         return BodyController;
