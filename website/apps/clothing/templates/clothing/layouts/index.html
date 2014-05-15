@@ -19,9 +19,13 @@
             <div class="clothes col-lg-3" ng-repeat="clothing in time.clothes">
                 {$ clothing.name $}
                 <br />
-                <img src="{{ MEDIA_URL }}{$ clothing.image $}" height="100px" />
+                <img src="{{ MEDIA_URL }}{$ clothing.image $}" height="100px" ng-click="onClothingChosen(clothing)" />
             </div>
         </div>
         <div class="clearfix"></div>
+    </div>
+
+    <div ng-controller="BodyController">
+        {$ foo $}
     </div>
 {% endblock %}

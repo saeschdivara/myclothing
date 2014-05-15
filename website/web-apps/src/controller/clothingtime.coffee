@@ -26,10 +26,32 @@ clothingApp.factory('clothingTimeManager', ['$http', '$q', 'ClothingTimeFactory'
 ])
 
 
-clothingApp.controller('ClothingTimeController', ['$scope', 'clothingTimeManager', ($scope, clothingTimeManager) ->
-    # Load all clothing times
-    clothingTimeManager.loadAll().then(
-      (clothingtimeList) =>
-        $scope.clothingtimes = clothingtimeList
-    )
+clothingApp.controller('ClothingTimeController', ['$scope', '$rootScope', 'clothingTimeManager',
+    ($scope, $rootScope, clothingTimeManager) ->
+        # Load all clothing times
+        clothingTimeManager.loadAll().then(
+          (clothingtimeList) =>
+            $scope.clothingtimes = clothingtimeList
+        )
+
+        class ClothingTimeController
+
+            constructor: () ->
+                ###
+                ###
+
+
+            $onClothingChosen: (clothing) ->
+                ###
+                ###
+
+                $rootScope.$broadcast('CLOTHING_IS_CHOSEN',
+                    clothing: clothing
+                )
+
+
+        $controller = new ClothingTimeController()
+        $scope.onClothingChosen = $controller.$onClothingChosen
+
+        return $controller
 ])
