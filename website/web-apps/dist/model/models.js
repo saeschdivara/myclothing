@@ -1,4 +1,14 @@
 (function() {
+  clothingApp.factory('BodyPartResource', [
+    '$resource', function($resource) {
+      return $resource('/api/body/:id/', {
+        id: '@id'
+      }, {
+        stripTrailingSlashes: false
+      });
+    }
+  ]);
+
   clothingApp.factory('ClothingResource', [
     '$resource', function($resource) {
       return $resource('/api/clothing/:id/', {

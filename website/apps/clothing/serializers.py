@@ -1,19 +1,25 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
-from clothing.models import ClothingTime, Clothing
+from clothing.models import ClothingTime, Clothing, BodyPart
 
 
 class ClothingTimeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ClothingTime
-        fields = ('name', 'clothes', 'slug', 'image', )
+        fields = ('id', 'name', 'clothes', 'slug', 'image', )
 
 
 class ClothingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clothing
-        fields = ('name', 'slug', 'image', )
+        fields = ('id', 'name', 'slug', 'image', )
+
+
+class BodyPartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BodyPart
+        fields = ('id', 'name', )
         
         
 class UserSerializer(serializers.HyperlinkedModelSerializer):

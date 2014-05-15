@@ -3,7 +3,7 @@ from django.conf.urls.i18n import i18n_patterns
 
 from rest_framework import viewsets, routers
 
-from clothing.views import UserViewSet, GroupViewSet, ClothingTimeViewSet, ClothingViewSet
+from clothing.views import UserViewSet, GroupViewSet, ClothingTimeViewSet, ClothingViewSet, BodyPartsViewSet
 
 
 
@@ -15,6 +15,7 @@ router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
 router.register(r'clothing-time', ClothingTimeViewSet)
 router.register(r'clothing', ClothingViewSet)
+router.register(r'body', BodyPartsViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browseable API.

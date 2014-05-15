@@ -1,4 +1,4 @@
-clothingApp.controller('BodyController', ['$scope', ($scope) ->
+clothingApp.controller('BodyController', ['$scope', 'BodyPartResource', ($scope, BodyPartResource) ->
 
     class BodyController
 
@@ -11,6 +11,9 @@ clothingApp.controller('BodyController', ['$scope', ($scope) ->
             @left_foot = ''
             @right_foot = ''
 
+            @all_parts = BodyPartResource.get()
+
+            console.log(@all_parts)
 
         $onClothingChosen: (event, message) =>
             console.log(event)

@@ -12,11 +12,20 @@
   });
 
   clothingApp.controller('BodyController', [
-    '$scope', function($scope) {
+    '$scope', 'BodyPartResource', function($scope, BodyPartResource) {
       var $controller, BodyController;
       BodyController = (function() {
         function BodyController() {
           this.$onClothingChosen = __bind(this.$onClothingChosen, this);
+          this.head = '';
+          this.upper_body_part = '';
+          this.lower_body_part = '';
+          this.left_arm = '';
+          this.right_arm = '';
+          this.left_foot = '';
+          this.right_foot = '';
+          this.all_parts = BodyPartResource.get();
+          console.log(this.all_parts);
         }
 
         BodyController.prototype.$onClothingChosen = function(event, message) {
