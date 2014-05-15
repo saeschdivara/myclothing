@@ -1,0 +1,79 @@
+[
+    {
+        "pk": 1,
+        "model": "clothing.bodypart",
+        "fields": {
+            "name": "Head",
+            "clothing": [],
+            "uuid": "3966b74d-e2f0-4bb8-8f66-b3a2b93a8f1f",
+            "modified": "2014-05-14T17:04:26.909Z",
+            "created": "2014-05-14T17:04:26.907Z"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "clothing.bodypart",
+        "fields": {
+            "name": "Left arm",
+            "clothing": [],
+            "uuid": "da4ed597-88c4-4859-9f56-6439287aa977",
+            "modified": "2014-05-15T16:43:53.793Z",
+            "created": "2014-05-14T17:04:34.991Z"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "clothing.bodypart",
+        "fields": {
+            "name": "Right arm",
+            "clothing": [],
+            "uuid": "f3f4bea6-774e-44e1-b5bb-d3a0ddebc314",
+            "modified": "2014-05-15T16:44:06.375Z",
+            "created": "2014-05-14T17:04:40.055Z"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "clothing.bodypart",
+        "fields": {
+            "name": "Upper body part",
+            "clothing": [],
+            "uuid": "6b0859a7-a3c2-4270-be0f-a6f3ffbcabd3",
+            "modified": "2014-05-15T16:44:00.166Z",
+            "created": "2014-05-15T16:44:00.165Z"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "clothing.bodypart",
+        "fields": {
+            "name": "Lower body part",
+            "clothing": [],
+            "uuid": "cbe4b40a-4b36-4360-bcd6-87ef0085cea5",
+            "modified": "2014-05-15T16:44:11.741Z",
+            "created": "2014-05-15T16:44:11.739Z"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "clothing.bodypart",
+        "fields": {
+            "name": "Left leg",
+            "clothing": [],
+            "uuid": "c30c0732-4eea-4470-aaa0-71815b386b9a",
+            "modified": "2014-05-15T16:44:18.308Z",
+            "created": "2014-05-15T16:44:18.307Z"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "clothing.bodypart",
+        "fields": {
+            "name": "Right leg",
+            "clothing": [],
+            "uuid": "af02b780-cead-4434-a35d-df901e40898c",
+            "modified": "2014-05-15T16:44:24.628Z",
+            "created": "2014-05-15T16:44:24.628Z"
+        }
+    }
+]

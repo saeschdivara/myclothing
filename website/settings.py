@@ -260,6 +260,11 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Fixtures data
+FIXTURE_DIRS = (
+    'clothing',
+)
+
 
 try:
     from local_settings import *
