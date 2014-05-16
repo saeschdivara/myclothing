@@ -30,22 +30,45 @@
 
         <div class="row">
             <div class="col-lg-4">
-                <img src="{$ BodyController.left_arm $}" />
+                <img src="{{ MEDIA_URL }}{$ bodyData.left_arm $}" height="100px" ng-show="bodyData.left_arm" />
             </div>
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <img src="{{ MEDIA_URL }}{$ bodyData.head $}" height="100px" ng-show="bodyData.head" />
+            </div>
+            <div class="col-lg-4">
+                <img src="{{ MEDIA_URL }}{$ bodyData.right_arm $}" height="100px" ng-show="bodyData.right_arm" />
+            </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
+                <img src="{{ MEDIA_URL }}{$ bodyData.upper_body_part $}" height="100px" ng-show="bodyData.upper_body_part" />
+            </div>
+            <div class="col-lg-4">
+            </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
+                <img src="{{ MEDIA_URL }}{$ bodyData.lower_body_part $}" height="100px" ng-show="bodyData.lower_body_part" />
+            </div>
+            <div class="col-lg-4">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="{{ MEDIA_URL }}{$ bodyData.left_leg $}" height="100px" ng-show="bodyData.left_leg" />
+            </div>
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
+                <img src="{{ MEDIA_URL }}{$ bodyData.right_leg $}" height="100px" ng-show="bodyData.right_leg" />
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -1,15 +1,17 @@
-clothingApp.controller('BodyController', ['$scope', 'BodyPartResource', ($scope, BodyPartResource) ->
+clothingApp.controller('BodyController', ['$scope', '$timeout', 'BodyPartResource', ($scope, $timeout, BodyPartResource) ->
 
     class BodyController
 
         constructor: () ->
-            @head = ''
-            @upper_body_part = ''
-            @lower_body_part = ''
-            @left_arm = ''
-            @right_arm = ''
-            @left_leg = ''
-            @right_leg = ''
+
+            @body_data =
+                head: ''
+                upper_body_part: ''
+                lower_body_part: ''
+                left_arm: ''
+                right_arm: ''
+                left_leg: ''
+                right_leg: ''
 
             BodyPartResource.query().$promise.then(
                 (result) =>
@@ -28,14 +30,18 @@ clothingApp.controller('BodyController', ['$scope', 'BodyPartResource', ($scope,
 
             if part
                 body_part_name = part.name.toLowerCase().replace(/[ ]/, '_')
-                @[body_part_name] = clothing.image
 
-                console.log(@)
-
-    $scope.foo = 'dddd'
+                $timeout(
+                    () =>
+                        @body_data[body_part_name] = clothing.image
+                        $scope.$apply()
+                )
 
     $controller = new BodyController()
     $scope.$on('CLOTHING_IS_CHOSEN', $controller.$onClothingChosen)
+
+    $scope.foo = 'dddd'
+    $scope.bodyData = $controller.body_data
 
     return $controller
 ])

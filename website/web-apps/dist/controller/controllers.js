@@ -12,18 +12,20 @@
   });
 
   clothingApp.controller('BodyController', [
-    '$scope', 'BodyPartResource', function($scope, BodyPartResource) {
+    '$scope', '$timeout', 'BodyPartResource', function($scope, $timeout, BodyPartResource) {
       var $controller, BodyController;
       BodyController = (function() {
         function BodyController() {
           this.$onClothingChosen = __bind(this.$onClothingChosen, this);
-          this.head = '';
-          this.upper_body_part = '';
-          this.lower_body_part = '';
-          this.left_arm = '';
-          this.right_arm = '';
-          this.left_leg = '';
-          this.right_leg = '';
+          this.body_data = {
+            head: '',
+            upper_body_part: '',
+            lower_body_part: '',
+            left_arm: '',
+            right_arm: '',
+            left_leg: '',
+            right_leg: ''
+          };
           BodyPartResource.query().$promise.then((function(_this) {
             return function(result) {
               return _this.all_parts = result;
@@ -46,17 +48,22 @@
           }
           if (part) {
             body_part_name = part.name.toLowerCase().replace(/[ ]/, '_');
-            this[body_part_name] = clothing.image;
-            return console.log(this);
+            return $timeout((function(_this) {
+              return function() {
+                _this.body_data[body_part_name] = clothing.image;
+                return $scope.$apply();
+              };
+            })(this));
           }
         };
 
         return BodyController;
 
       })();
-      $scope.foo = 'dddd';
       $controller = new BodyController();
       $scope.$on('CLOTHING_IS_CHOSEN', $controller.$onClothingChosen);
+      $scope.foo = 'dddd';
+      $scope.bodyData = $controller.body_data;
       return $controller;
     }
   ]);
